@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    background: #EEEEEE;
+}
+
+#wrapper {
+    max-width: 700px;
+    min-height: 100vh;
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+}
+
+/* Element that contains the import and export buttons */
+#filer {
+    padding: 5px 0;
+}
+
+.ql-toolbar:after {
+    clear: none !important;
+}
+
+#editor {
+    border-bottom: 0 !important;
+    height: inherit !important;
+}
+
+#export-button {
+    float: right;
+}
