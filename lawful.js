@@ -24,14 +24,15 @@ $(function() {
         modal: true,
         buttons: {
             Apply: function () {
+                const self = $(this);
                 const previousMatter = frontmatter;
-                let matter = parseGreyMatter(sourceDialog.val());
+                let matter = parseGreyMatter(self.val());
                 let contents;
                 try {
                     contents = JSON.parse(matter.content);
                 }
                 catch (e) {
-                    sourceDialog.dialog("close");
+                    self.dialog("close");
                     $(function() {
                         $("<div><p>Could not parse that Quill document source!</p></div>").dialog({
                             title: "Error!"
@@ -45,7 +46,7 @@ $(function() {
                 }
                 catch (e) {
                     quillEditor.setContents(previousSource);
-                    sourceDialog.dialog("close");
+                    self.dialog("close");
                     $(function() {
                         $("<div><p>Could not apply that Quill document source!</p></div>").dialog({
                             title: "Error!"
@@ -54,11 +55,11 @@ $(function() {
                     return;
                 }
                 frontmatter = matter.matter;
-                sourceDialog.dialog("close");
+                self.dialog("close");
             }
         },
         open: function () {
-            sourceDialog
+            $(this)
                 .val("") // Clear the textarea
                 .outerWidth("100%")
                 .attr({ readonly: false })
@@ -77,10 +78,10 @@ $(function() {
         modal: true,
         buttons: {
             "Select All": function () {
-                exportDialog.select();
+                $(this).select();
             },
             Close: function () {
-                exportDialog.dialog("close");
+                $(this).dialog("close");
             }
         },
         open: function () {
@@ -95,7 +96,7 @@ $(function() {
                     + "\n"
                     + stringifiedContents;
             }
-            exportDialog
+            $(this)
                 .val(stringifiedContents)
                 .outerWidth("100%")
                 .attr({ readonly: true });
