@@ -16,6 +16,11 @@ body {
     padding: 5px 0;
 }
 
+.ql-toolbar {
+    background: #EEEEEE;
+    z-index: 1;
+}
+
 .ql-toolbar:after {
     clear: none !important;
 }
@@ -23,6 +28,7 @@ body {
 #editor {
     border-bottom: 0 !important;
     height: inherit !important;
+    z-index: 0;
 }
 
 #export-button {

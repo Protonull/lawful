@@ -105,3 +105,31 @@ $(function() {
         exportDialog.dialog("open");
     });
 });
+
+const QL_EDITOR = $("#editor");
+const QL_TOOLBAR = $(".ql-toolbar");
+let previousScrollPos = $(this).scrollTop();
+function keepQuillToolbarVisible() {
+    const scrollPos = $(this).scrollTop();
+    const thresholdPos = QL_EDITOR.position().top + parseFloat(QL_EDITOR.css("marginTop")) - QL_TOOLBAR.outerHeight();
+    if (previousScrollPos <= thresholdPos && scrollPos > thresholdPos) {
+        QL_TOOLBAR.css({
+            position: "fixed"
+        });
+        QL_EDITOR.css({
+            marginTop: QL_TOOLBAR.outerHeight()
+        });
+    }
+    else if (previousScrollPos > thresholdPos && scrollPos < thresholdPos) {
+        QL_TOOLBAR.css({
+            position: ""
+        });
+        QL_EDITOR.css({
+            marginTop: 0
+        });
+    }
+    previousScrollPos = scrollPos;
+}
+$(window)
+    .scroll(keepQuillToolbarVisible)
+    .ready(keepQuillToolbarVisible);
