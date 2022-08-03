@@ -134,3 +134,11 @@ function keepQuillToolbarVisible() {
 $(window)
     .scroll(keepQuillToolbarVisible)
     .ready(keepQuillToolbarVisible);
+
+// Quill will reset your scroll back to 0 on certain operations which
+// makes editing longer documents a real PITA
+quillEditor.on("text-change", function () {
+    if (previousScrollPos !== 0 && $(window).scrollTop() === 0) {
+        $(window).scrollTop(previousScrollPos);
+    }
+});
