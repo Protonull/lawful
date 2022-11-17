@@ -85,7 +85,7 @@ $(function() {
             }
         },
         open: function () {
-            let stringifiedContents = JSON.stringify(quillEditor.getContents() ?? {}, null, 4);
+            let stringifiedContents = JSON.stringify(quillEditor.getContents()?.ops ?? [], null, 4);
             if (frontmatter) {
                 stringifiedContents
                     = "---"
