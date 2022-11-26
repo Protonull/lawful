@@ -142,3 +142,16 @@ quillEditor.on("text-change", function () {
         $(window).scrollTop(previousScrollPos);
     }
 });
+
+// Another anti-scroll reset listener... sigh
+let lastKnownScrollPosition = 0
+addEventListener("scroll", () => {
+    let afterEventPosition = window.scrollY;
+    const toolbarTop = QL_TOOLBAR.position().top;
+    if (lastKnownScrollPosition > (toolbarTop + 100) && afterEventPosition <= toolbarTop) {
+        $(window).scrollTop(lastKnownScrollPosition);
+    }
+    else {
+        lastKnownScrollPosition = afterEventPosition;
+    }
+});
