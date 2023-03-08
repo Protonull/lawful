@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Lawful Editor</title>
+
+        <link rel="icon" type="image/png" href="./favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+
+        <meta name="description" content="Online Quill editor">
+        <meta name="author" content="Protonull">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <link rel="stylesheet" href="https://unpkg.com/sanitize.css@13.0.0/sanitize.css">
+
+        <!-- Quill (https://github.com/quilljs/quill/releases) -->
+        <script src="https://cdn.quilljs.com/quill.js"></script>
+        <link rel="stylesheet" href="https://cdn.quilljs.com/quill.snow.css">
+
+        <!-- jQuery (https://jquery.com/) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- jQuery UI (https://jqueryui.com/) -->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.min.css">
+
+        <!-- Gray Matter (https://www.npmjs.com/package/gray-matter) -->
+        <script type="module">
+            import grayMatter from "https://cdn.skypack.dev/gray-matter@4.0.3";
+            window.parseGreyMatter = grayMatter;
+        </script>
+
+        <!-- Lawful -->
+        <link rel="stylesheet" href="./lawful.css">
+        <script src="./lawful.js" defer></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="filer">
+                <button id="import-button">Import</button>
+                <button id="export-button">Export</button>
+            </div>
+            <div id="editor"></div>
+        </div>
+    </body>
+</html>
