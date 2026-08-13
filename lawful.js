@@ -8,8 +8,9 @@ window.quillEditor = new Quill(document.getElementById("editor"), {
             ["bold", "italic", "underline", "strike"],
             [{"color": []}, {"background": []}],
             [{"align": []}, {"indent": "-1"}, {"indent": "+1"}, {"list": "ordered"}, {"list": "bullet"}],
+            [{"script": "sub"}, {"script": "super"}],
             ["blockquote", "code-block"],
-            ["link", "image", "video"],
+            ["link", "image", "formula"],
             ["clean"]
         ]
     }
